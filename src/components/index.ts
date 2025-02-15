@@ -4,6 +4,7 @@ import {SearchToken} from "./SearchToken/SearchToken"
 import { NavBar } from "./NavBar/NavBar"
 import {Toggle} from "./Toggle/Toggle"
 import {TokenList} from "./TokenList/TokenList"
+import {Token} from "./Token/Token"
 
 
-export {HeroSection , Model ,SearchToken , NavBar , Toggle , TokenList}
+export {HeroSection , Model , SearchToken , NavBar , Toggle , TokenList , Token}
