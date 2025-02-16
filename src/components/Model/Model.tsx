@@ -6,7 +6,7 @@ interface Props{
 
 export const Model:FC<Props> = ({setOpenModel , connectWallet}) =>{
     const walletMenu = ["MetaMask" , "Phantom" , "Coinbase"] 
-    return (<div className="z-111111  backdrop-blur-sm absolute w-full h-screen flex items-center justify-center inset-0 ">
+    return (<div className="z-[1111] backdrop-blur-sm absolute w-full h-screen flex items-center justify-center inset-0 ">
         <div className="p-5 bg-slate-600 rounded-lg shadow-xl text-3xl ">
             <div className="flex pb-6">
                 <span className="pr-10 font-bold">Connect a wallet </span><div className="pl-2"><button onClick={()=>(setOpenModel(false))}>b</button></div> 

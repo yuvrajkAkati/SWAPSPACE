@@ -18,13 +18,13 @@ export const HeroSection = ({ accounts , tokenData }) =>{
 
 
     return (
-        <div>
+        <div className="flex relative z-50 justify-center items-center">
             <div className="flex items-center px-96 justify-center h-screen">
                 <div className="bg-gradient-to-r from-slate-700 via-slate-300 to-slate-400 w-4/5 h-96 mb-32 rounded-lg p-0.5">
                     <div className="bg-slate-900 h-full w-full text-slate-300 text-3xl">
                         <div className="flex justify-between py-5 pt-10 px-10">
                             <div>Swap</div>
-                            <div>b</div>
+                            <div><button onClick={()=>{setOpenSetting(true)}}>b</button></div>
                         </div>
                         <div className=" px-10 pt-10 ">
                             <div className="flex">
@@ -52,9 +52,11 @@ export const HeroSection = ({ accounts , tokenData }) =>{
                 </div>
             </div>
             {/* <>for the dynamic block</> */}
-            {
-                openSetting && <Token setOpenSetting={setOpenSetting}></Token>
-            }
+            <div className="fixed mb-32 text-white">
+                {
+                    openSetting && <Token setOpenSetting={setOpenSetting}></Token>
+                }
+            </div>
             {
                 openToken && (
                     <SearchToken openToken={setOpenToken} tokens={setTokenOne} tokenData={tokenData}></SearchToken>
