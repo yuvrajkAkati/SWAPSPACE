@@ -20,10 +20,11 @@ export const NavBar = ({}) =>{
 
     const [openModel , setOpenModel] = useState(false)
     const [openTokenBox ,setOpenTokenBox] = useState(false)
+    const [account , setAccount] = useState(false)
 
     return (     
-        <div>   
-        <div className="relative flex items-center justify-center bg-slate-700 h-20 text-white">
+        <div className="">   
+        <div className="relative flex items-center justify-center bg-slate-700 h-20 text-white z-[999]">
             <div className="absolute left-12 px-10 text-xl font-bold shadow-lg">SWAPSPACE</div>
             <div className="flex ml-40 gap-10 text-xl font-light">
                 {menuItems.map((element,i)=>(
@@ -37,15 +38,23 @@ export const NavBar = ({}) =>{
             </div>
             <div className="flex gap-10 absolute right-12 text-sm font-light">
                 <div className="h-10 w-36 flex justify-center items-center rounded-lg bg-slate-800">Network Name</div>
-                <div className=" h-10 w-24 flex justify-center items-center rounded-lg bg-slate-800 "><button onClick={()=>{setOpenModel(true)}}>ADDRESS</button></div>
-            </div>
-                {openTokenBox && (
-                    <TokenList tokenData="asd" setOpenTokenBox={setOpenTokenBox}/>
+                <div className=" h-10 w-24 flex justify-center items-center rounded-lg bg-slate-800 ">
+                    {account ? (
+                            <button onClick={()=>{setOpenModel(true)}}>CONNECT</button>
+                    ) : ( 
+                    <button onClick={()=>{setOpenTokenBox(true)}}>0xHdaSKJDHK...</button>
                 )}
+                </div>
+            </div>
+                
         </div>
         <div className="">{openModel && (
             <Model setOpenModel = {setOpenModel} connectWallet="connect"/>
-        )}</div>
+        )}
+        {openTokenBox && (
+                    <TokenList tokenData="asd" setOpenTokenBox={setOpenTokenBox}/>
+                )}
+        </div>
         </div>
     )
 }

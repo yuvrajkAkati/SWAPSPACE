@@ -4,7 +4,7 @@ import {Token , SearchToken} from "../index"
 export const HeroSection = ({ accounts , tokenData }) =>{
     const [openSetting , setOpenSetting] = useState(false)
     const [openToken ,setOpenToken] = useState(false)
-    const [openTokensTwo,setOpenTokensTwo] = useState(false)
+    const [openTokenTwo,setOpenTokenTwo] = useState(false)
 
     const [tokenOne , setTokenOne] = useState({
         name : "",
@@ -21,7 +21,7 @@ export const HeroSection = ({ accounts , tokenData }) =>{
         <div className="flex relative z-50 justify-center items-center">
             <div className="flex items-center px-96 justify-center h-screen">
                 <div className="bg-gradient-to-r from-slate-700 via-slate-300 to-slate-400 w-4/5 h-96 mb-32 rounded-lg p-0.5">
-                    <div className="bg-slate-900 h-full w-full text-slate-300 text-3xl">
+                    <div className="bg-slate-900 h-full w-full text-slate-300 text-3xl rounded-lg">
                         <div className="flex justify-between py-5 pt-10 px-10">
                             <div>Swap</div>
                             <div><button onClick={()=>{setOpenSetting(true)}}>b</button></div>
@@ -29,14 +29,18 @@ export const HeroSection = ({ accounts , tokenData }) =>{
                         <div className=" px-10 pt-10 ">
                             <div className="flex">
                             <input type="text" placeholder="0" className="w-full pr-20 pl-4 py-2 border border-slate-700 bg-slate-900 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800"/>
-                            <div className="pl-1"><button className="bg-slate-900 h-full border w-40 rounded-xl">ETH</button>
+                            <div className="pl-1"><button className="bg-slate-900 h-full border w-40 rounded-xl" onClick={()=>{
+                                setOpenToken(true)
+                            }}>{tokenOne.name || "ETH"}</button>
                             </div>
                             </div>
                         </div>
                         <div className=" px-10 pt-5 ">
                             <div className="flex">
                             <input type="text" placeholder="0" className="w-full pr-20 pl-4 py-2 border border-slate-700 bg-slate-900 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-800"/>
-                            <div className="pl-1"><button className="bg-slate-900 h-full border w-40 rounded-xl">ETH</button>
+                            <div className="pl-1"><button className="bg-slate-900 h-full border w-40 rounded-xl" onClick={()=>{
+                                setOpenTokenTwo(true)
+                            }}>{tokenTwo.name || "ETH"}</button>
                             </div>
                             </div>
                         </div>                      
@@ -52,21 +56,25 @@ export const HeroSection = ({ accounts , tokenData }) =>{
                 </div>
             </div>
             {/* <>for the dynamic block</> */}
-            <div className="fixed mb-32 text-white">
+            <div className="absolute mb-32 text-white">
                 {
-                    openSetting && <Token setOpenSetting={setOpenSetting}></Token>
+                    openSetting && <Token setOpenSetting={setOpenSetting} ></Token>
                 }
             </div>
+            <div className="absolute mb-32 text-white">
             {
                 openToken && (
                     <SearchToken openToken={setOpenToken} tokens={setTokenOne} tokenData={tokenData}></SearchToken>
                 )
             }
+            </div>
+            <div className="absolute mb-32 text-white">
             {
-                openToken && (
-                    <SearchToken openToken={setOpenToken} tokens={setTokenOne} tokenData={tokenData}></SearchToken>
+                openTokenTwo && (
+                    <SearchToken openToken={setOpenTokenTwo} tokens={setTokenTwo} tokenData={tokenData}></SearchToken>
                 )
             }
+            </div>
         </div>
     )
 }

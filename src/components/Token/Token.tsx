@@ -3,7 +3,7 @@ import { Toggle } from "../index";
 
 export const Token = ({setOpenSetting}) => {  
     return (
-        <div className="bg-slate-900 border w-[36vw] h-[30vw] text-xl rounded-lg ">
+        <div className="bg-slate-900 relative border w-[36vw] h-[30vw] text-xl rounded-lg ">
            <div className="w-full h-full p-10">
              {/* top components */}
                 <div className="flex items-center justify-between w-full pb-10">
