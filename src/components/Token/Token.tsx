@@ -6,7 +6,7 @@ export const Token = ({setOpenSetting}) => {
         <div className="bg-slate-900 relative border w-[36vw] h-[30vw] text-xl rounded-lg ">
            <div className="w-full h-full p-10">
              {/* top components */}
-                <div className="flex items-center justify-between w-full pb-10">
+                <div className="flex items-center justify-between w-full pb-7">
                     <div>
                         SETTINGS
                     </div>
@@ -47,7 +47,7 @@ export const Token = ({setOpenSetting}) => {
                     </div>
                 </div>
                 {/* interface */}
-                <div className="py-10">
+                <div className="py-7">
                     <div className="pb-2 ">
                         Interface Settings
                     </div>

@@ -40,18 +40,17 @@ export const NavBar = ({}) =>{
                 <div className="h-10 w-36 flex justify-center items-center rounded-lg bg-slate-800">Network Name</div>
                 <div className=" h-10 w-24 flex justify-center items-center rounded-lg bg-slate-800 ">
                     {account ? (
-                            <button onClick={()=>{setOpenModel(true)}}>CONNECT</button>
+                        <button onClick={()=>{setOpenTokenBox(true)}}>0xHdaSKJDHK...</button>
                     ) : ( 
-                    <button onClick={()=>{setOpenTokenBox(true)}}>0xHdaSKJDHK...</button>
+                    <button onClick={()=>{setOpenModel(true)}}>CONNECT</button>
                 )}
                 </div>
             </div>
-                
         </div>
         <div className="">{openModel && (
             <Model setOpenModel = {setOpenModel} connectWallet="connect"/>
         )}
-        {openTokenBox && (
+        {!openTokenBox && (
                     <TokenList tokenData="asd" setOpenTokenBox={setOpenTokenBox}/>
                 )}
         </div>
