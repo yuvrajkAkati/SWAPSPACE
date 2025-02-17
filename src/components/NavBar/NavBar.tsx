@@ -19,7 +19,7 @@ export const NavBar = ({}) =>{
     ]
 
     const [openModel , setOpenModel] = useState(false)
-    const [openTokenBox ,setOpenTokenBox] = useState(false)
+    const [openTokenBox ,setOpenTokenBox] = useState(true)
     const [account , setAccount] = useState(false)
 
     return (     
@@ -50,7 +50,7 @@ export const NavBar = ({}) =>{
         <div className="">{openModel && (
             <Model setOpenModel = {setOpenModel} connectWallet="connect"/>
         )}
-        {!openTokenBox && (
+        {openTokenBox && (
                     <TokenList tokenData="asd" setOpenTokenBox={setOpenTokenBox}/>
                 )}
         </div>
