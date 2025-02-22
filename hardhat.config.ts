@@ -6,7 +6,7 @@ const config: HardhatUserConfig = {
   networks : {
     hardhat : {
       forking : {
-        url : "https://eth-mainnet.g.alchemy.com/v2/QVSxCIKEbPdKDFhj0OR4qcJq0rWMOuWf"
+        url : "https://eth-sepolia.g.alchemy.com/v2/QVSxCIKEbPdKDFhj0OR4qcJq0rWMOuWf"
       }
     }
   }

@@ -1,43 +1,32 @@
-const {expect} = require("chai");
-const {ethers} = require("hardhat");
-const { waitForDebugger } = require("inspector");
+const {expect} = require("chai")
+const {ethers} = require("ethers")
 
-const DAI = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
-const WETH9 = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
-const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+const DAI = ""
+const WETH9 = ""
+const USDC = ""
 
 describe("SingleSwapToken",()=>{
-    let singleSwapToken;
+    let singleSwapToken
     let accounts;
-    let weth ;
-    let dai;
-    let usdc;
-        
-        before(async()=>{
-            accounts = await ethers.getSigners();
-           
-            const SingleSwapToken = await ethers.getContractFactory("SingleSwapToken")
-            singleSwapToken = await SingleSwapToken.deploy()
-            await singleSwapToken.waitForDeployment()
-            weth = await ethers.getContractAt("IWETH",WETH9)
-            dai = await ethers.getContractAt("IERC20",DAI)
-            usdc = await ethers.getContractAt("IERC20",USDC)
+    let weth 
+    let usdc
+    let dai
 
-            console.log(singleSwapToken.target)
-        })
-        
-        it("swapExactInputSingle" , async()=>{            
-            const amountIn = 10n ** 18n;
-            // deposit
-            await weth.connect(accounts[0]).deposit({value : amountIn})
-            await weth.approve(singleSwapToken.target,amountIn);
-            console.log("ASd")
-            console.log(weth);
-            console.log(dai);
-            console.log(usdc);
-            console.log(accounts);
-            console.log(singleSwapToken);
+    before(async()=>{
+        const accounts = await hre.ethers.getSigners()
+        const SingleSwapToken = await hre.ethers.getContractFactory("SwapToken")
+        singleSwapToken = await SingleSwapToken.deploy()
+        console.log("asd")
+        await singleSwapToken.waitForDeployment()
+
+        weth = await hre.ethers.getContractAt("IWETH" ,WETH9)
+        dai = await hre.ethers.getContractAt("IERC20" ,DAI)
+        usdc = await hre.ethers.getContractAt("IERC20" ,USDC)
+    })  
+    it("swapExactInputSingle" , async()=>{
+        const amountIn = 10n ** 18n;
+        await weth.deposit({value : amountIn})
+        await weth.approve(singleSwapToken.target,amountIn)
+        console.log("asd")
     })
 })
-
-
